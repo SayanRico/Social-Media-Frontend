@@ -1,0 +1,41 @@
+.supper-avatar {
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+
+.big-avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.medium-avatar {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: 2px solid var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.small-avatar {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}
+
+.big-avatar-cover {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--c1), var(--accent-2), var(--pink));
+}
+
+.big-avatar-cover .big-avatar,
+.big-avatar-cover img {
+  border: 2px solid var(--surface);
+}

@@ -1,0 +1,230 @@
+/* Face Meet toast notifications */
+
+.fm-toast-viewport {
+  position: fixed;
+  top: 80px;
+  right: 16px;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: min(380px, calc(100vw - 32px));
+  pointer-events: none;
+}
+
+.fm-toast-viewport__header {
+  display: flex;
+  justify-content: flex-end;
+  pointer-events: auto;
+}
+
+.fm-toast-dismiss-all {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 4px 12px;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: var(--shadow-sm);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.fm-toast-dismiss-all:hover {
+  color: var(--text);
+  border-color: var(--border-strong);
+}
+
+.fm-toast {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 14px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  pointer-events: auto;
+  animation: fm-toast-in 0.32s cubic-bezier(0.21, 1.02, 0.73, 1) forwards;
+}
+
+.fm-toast.is-exiting {
+  animation: fm-toast-out 0.22s ease forwards;
+}
+
+.fm-toast.is-paused .fm-toast__progress {
+  animation-play-state: paused;
+}
+
+@keyframes fm-toast-in {
+  from {
+    opacity: 0;
+    transform: translateX(100%) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes fm-toast-out {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+.fm-toast__icon {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fm-toast__icon .material-icons {
+  font-size: 20px;
+}
+
+.fm-toast--success .fm-toast__icon {
+  background: rgba(16, 185, 129, 0.12);
+  color: #059669;
+}
+
+.fm-toast--error .fm-toast__icon {
+  background: rgba(239, 68, 68, 0.12);
+  color: #dc2626;
+}
+
+.fm-toast--warning .fm-toast__icon {
+  background: rgba(245, 158, 11, 0.14);
+  color: #d97706;
+}
+
+.fm-toast--info .fm-toast__icon {
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.fm-toast__content {
+  flex: 1;
+  min-width: 0;
+  padding-top: 2px;
+}
+
+.fm-toast__title {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 2px;
+  font-family: "Syne", var(--font-sans);
+}
+
+.fm-toast__message {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  word-break: break-word;
+}
+
+.fm-toast__close {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.25rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, color 0.15s ease;
+  margin: -4px -4px 0 0;
+}
+
+.fm-toast__close:hover {
+  background: var(--surface-elevated);
+  color: var(--text);
+}
+
+.fm-toast__progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  transform-origin: left;
+  animation: fm-toast-progress linear forwards;
+}
+
+.fm-toast--success .fm-toast__progress {
+  background: #10b981;
+}
+
+.fm-toast--error .fm-toast__progress {
+  background: #ef4444;
+}
+
+.fm-toast--warning .fm-toast__progress {
+  background: #f59e0b;
+}
+
+.fm-toast--info .fm-toast__progress {
+  background: var(--accent);
+}
+
+@keyframes fm-toast-progress {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .fm-toast-viewport {
+    top: auto;
+    bottom: 72px;
+    right: 12px;
+    left: 12px;
+    width: auto;
+  }
+
+  @keyframes fm-toast-in {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fm-toast-out {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+  }
+}

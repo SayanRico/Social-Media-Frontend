@@ -1,0 +1,219 @@
+/* #region layout */
+.home {
+  padding-top: 8px;
+  padding-bottom: 32px;
+}
+
+.home .col-md-8,
+.home .col-md-4 {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.home-empty {
+  text-align: center;
+  padding: 56px 28px;
+  color: var(--text-muted);
+  font-weight: 500;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.home-empty__icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  border-radius: 18px;
+  display: grid;
+  place-items: center;
+  background: var(--accent-soft);
+  color: var(--c1);
+  font-size: 1.5rem;
+}
+
+.home-empty h3 {
+  margin: 0 0 8px;
+  color: var(--text);
+  font-weight: 800;
+  font-family: "Syne", var(--font-sans);
+}
+
+.home-empty p {
+  margin: 0 0 20px;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sidebar-panel__card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.sidebar-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 18px 0 10px;
+}
+
+.sidebar-panel__head h5 {
+  margin: 0;
+  font-weight: 800;
+  font-family: "Syne", var(--font-sans);
+  color: var(--text);
+  font-size: 1rem;
+}
+
+/* #endregion */
+
+/* #region status */
+.status {
+  background-color: transparent;
+  padding: 16px 0 8px;
+  gap: 12px;
+}
+
+.status .statusBtn {
+  border-radius: var(--radius-pill);
+  padding: 14px 20px;
+  text-align: left;
+  margin: 0;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.status .statusBtn:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow: var(--shadow-md);
+  color: var(--text);
+}
+
+.status .statusBtn span {
+  text-shadow: none;
+}
+
+/* #endregion */
+
+/* #region Posts */
+.posts .card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+.posts .card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+/* #endregion */
+
+/* #region Post card's header */
+.posts .card_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, var(--surface) 0%, var(--surface-elevated) 100%);
+}
+
+.posts .card_header .card_name {
+  transform: translateY(2px);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.posts .card_header .dropdown-menu {
+  position: absolute;
+  left: inherit !important;
+  right: 0;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+}
+
+.posts .card_header .dropdown-item {
+  display: flex;
+  margin: 4px 0;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.posts .card_header .dropdown-item:hover {
+  background: var(--accent-soft);
+}
+
+.posts .card_header #moreLink {
+  color: var(--c1);
+}
+
+/* #endregion */
+
+/* #region Post card's body */
+.posts .card_body-content {
+  padding: 0 20px;
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.posts .card_body-content .readMore {
+  color: var(--c1);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* #endregion */
+
+/* #region Post card's footer */
+.posts .card_icon_menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 12px 14px;
+  cursor: pointer;
+  border-top: 1px solid var(--border);
+  background: var(--surface-elevated);
+}
+
+.posts .card_icon_menu i {
+  font-size: 24px;
+  margin: 8px;
+  color: var(--text-muted);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.posts .card_icon_menu i:hover {
+  color: var(--c1);
+}
+
+.posts .card_icon_menu img {
+  width: 26px;
+  height: 26px;
+  transform: translate(5px, 8px);
+  opacity: 0.85;
+}
+
+/* #endregion */
+
+/* #region sidebar suggestions */
+.home .my-4 h5.color-c1 {
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-shadow: none;
+}
+
+.home .suggestions .inner-shadow {
+  border-radius: var(--radius-sm) !important;
+}
+
+/* #endregion */

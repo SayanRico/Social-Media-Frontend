@@ -1,0 +1,222 @@
+/* Face Meet loaders */
+
+@keyframes fm-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fm-pulse {
+  0%,
+  80%,
+  100% {
+    transform: scale(0.55);
+    opacity: 0.45;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fm-shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.fm-loader {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.fm-loader__ring {
+  border-radius: 50%;
+  border-style: solid;
+  border-color: var(--accent-soft);
+  border-top-color: var(--accent);
+  animation: fm-spin 0.75s linear infinite;
+}
+
+.fm-loader--sm .fm-loader__ring {
+  width: 22px;
+  height: 22px;
+  border-width: 2px;
+}
+
+.fm-loader--md .fm-loader__ring {
+  width: 40px;
+  height: 40px;
+  border-width: 3px;
+}
+
+.fm-loader--lg .fm-loader__ring {
+  width: 52px;
+  height: 52px;
+  border-width: 3px;
+}
+
+.fm-loader--xl .fm-loader__ring {
+  width: 64px;
+  height: 64px;
+  border-width: 4px;
+}
+
+.fm-loader__dots {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.fm-loader__dots span {
+  border-radius: 50%;
+  background: var(--accent);
+  animation: fm-pulse 1.1s ease-in-out infinite;
+}
+
+.fm-loader--sm .fm-loader__dots span {
+  width: 6px;
+  height: 6px;
+}
+
+.fm-loader--md .fm-loader__dots span {
+  width: 8px;
+  height: 8px;
+}
+
+.fm-loader--lg .fm-loader__dots span,
+.fm-loader--xl .fm-loader__dots span {
+  width: 10px;
+  height: 10px;
+}
+
+.fm-loader__dots span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.fm-loader__dots span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.fm-loader__label {
+  margin: 0;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  text-align: center;
+}
+
+.fm-loader--lg .fm-loader__label,
+.fm-loader--xl .fm-loader__label {
+  font-size: 0.875rem;
+  font-family: "Syne", var(--font-sans);
+  color: var(--text);
+}
+
+.fm-loading-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.38);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  animation: fm-overlay-in 0.25s ease;
+}
+
+.fm-loading-overlay.is-exiting {
+  animation: fm-overlay-out 0.2s ease forwards;
+}
+
+@keyframes fm-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fm-overlay-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.fm-loading-overlay__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 28px 36px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  min-width: 200px;
+}
+
+.fm-loading-overlay__brand {
+  font-family: "Syne", var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.fm-loader-inline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 32px 16px;
+  width: 100%;
+}
+
+.fm-loader-inline--compact {
+  padding: 16px;
+}
+
+.fm-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--surface-elevated) 25%,
+    rgba(99, 102, 241, 0.08) 50%,
+    var(--surface-elevated) 75%
+  );
+  background-size: 200% 100%;
+  animation: fm-shimmer 1.4s ease infinite;
+  border-radius: var(--radius-sm);
+}
+
+.ui-btn__spinner,
+.fm-btn-spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: fm-spin 0.6s linear infinite;
+  flex-shrink: 0;
+}
+
+.ui-btn--secondary .ui-btn__spinner,
+.ui-btn--ghost .ui-btn__spinner {
+  border-color: var(--accent-soft);
+  border-top-color: var(--accent);
+}
